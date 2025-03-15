@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <h1>Post Detail</h1>
+
+    <h2>{{poster.title}}</h2>
+    <p>{{poster.created_at}}</p>
+    <p>{{poster.description}}</p>
+    <img src="{{poster.image.url}}" alt="{{poster.title}}">
+    <p>{{poster.updated_at}}</p>
+
+    {% if poster.published %}
+        <label for="{{ poster.published }}">Publicado ✅</label>
+    {% else %}
+        <label for="{{ poster.published }}">No Publicado ❌</label>
+    {% endif %}
+
+{% endblock %}

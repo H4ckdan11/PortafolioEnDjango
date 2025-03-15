@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio en Django</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style type="text/tailwindcss">
+        h2 {
+            color: var(--color-white);
+        }
+    </style>
+</head>
+<body class="bg-cyan-600 text-justify text-white ">
+    
+    {% include 'partials/navbar.html' %}
+
+    <div class="font-mono">
+        {% block header %}
+
+        {% endblock %}
+    </div>
+    
+    <div class="grid justify-items-center gap-5 font-mono">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+</body>
+</html>

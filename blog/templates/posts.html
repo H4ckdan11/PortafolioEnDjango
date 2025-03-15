@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% for post in posteos %}
+
+<div class="grid grid-cols-2 bg-orange-400 shadow-lg p-1 m-3 rounded-xl">
+    <div class="grid col-1 place-items-center">
+        <img class="rounded-xl" src="{{ post.image.url }}" alt="{{ post.title }}l">
+    </div>
+
+    <div class="grid col-2 justify-items-center w-100 h-auto p-4 overflow-auto bg-gray-800 rounded-xl">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.description }}</p>
+        <p>{{ post.created_at|date:'M d Y'|upper }}, {{post.created_at|time:"h:i A"}}</p>
+
+        {% if post.published %}
+        <label for="{{ post.published }}">Publicado ✅</label>
+        {% else %}
+        <label for="{{ post.published }}">No Publicado ❌</label>
+        {% endif %}
+
+        <!--<p>{{ post.updated_at }}</p>-->
+        <a class="grid place-items-center rounded-md px-3  text-sm font-medium bg-cyan-600 text-white hover:bg-emerald-700 hover:text-white shadow-lg shadow-cyan-500/50 opacity-75 cursor-progress" href="{% url 'blog:post' post.id %}">Visitar</a>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

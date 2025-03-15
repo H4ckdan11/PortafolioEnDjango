@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+
+{% load static %}
+
+<header class="rounded-xl grid grid-cols-2 row-2 bg-gray-800 p-5 m-8">
+
+    <div class="grid place-items-center col-1 ">
+        <img class="size-50 " src="{% static 'portafolio/logo.svg' %}" alt="">
+    </div>
+    <div class="grid col-2 gap-1">
+        <h1>Soy <strong>Daniel</strong></h1>
+        <h3>Soy Desarrollador full stack en Java y Python,
+             con conocimientos avanzados en Linux.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quod quam quia eaque cumque iste et id eveniet repudiandae,
+            non cum. Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. At minima neque adipisci corporis placeat odit,
+            illum fuga voluptas obcaecati ea labore impedit aspernatur reiciendis
+            temporibus praesentium, exercitationem pariatur minus veniam! Pariatur
+            dolor ut corrupti quasi labore facere quas totam illum sunt voluptates
+            debitis harum, dignissimos, atque
+            repellendus aspernatur omnis amet!</p>
+    </div>
+
+</header>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="rounded-xl grid grid-cols-3 bg-gray-800 row-1 p-10 m-8 gap-1.5">
+
+    <div class="col-2 text-center">
+        <h1>Mis Proyectos</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    {% for p in portafolios %}
+
+    <div
+        class="grid place-items-center col-2 m-2 bg-orange-400 overflow-hidden shadow-xl rounded-xl hover:cursor-pointer">
+        <div class="grid gap-1.5 max-w-sm  p-10">
+            <img class="rounded-xl w-full shadow-xl h-80" src="{{p.image.url}}" alt="{{p.title}}">
+            <h2>{{ p.title }}</h2>
+            <p>{{ p.description }}</p>
+
+            {% if p.url %}
+            <a class="grid place-items-center rounded-md px-3 py-2 text-sm font-medium bg-cyan-600 text-white hover:bg-emerald-700 hover:text-white shadow-lg shadow-cyan-500/50 opacity-75 cursor-progress"
+                href="{{p.url}}" target="_blank">Visitar</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
