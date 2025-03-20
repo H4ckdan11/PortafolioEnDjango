@@ -1,1 +1,1 @@
-![Vista previa del proyecto] (Ejemplo_Proyecto.jpg)
+![Vista previa del proyecto](Ejemplo_Proyecto.jpg)
